@@ -11,7 +11,6 @@ import Cursor from "../components/Cursor";
 import FlyingReaction from "../components/FlyingReaction";
 import ReactionSelector from "../components/ReactionSelector";
 import useInterval from "../hooks/useInterval";
-import { Avatar } from "../components/Avatar";
 import styles from "../styles/Index.module.css";
 /**
  * This file shows how to create Live Cursors with a small chat and interactions
@@ -286,35 +285,7 @@ function Example() {
     </>
   );
 }
-function AvatarExample() {
-  const users = useOthers();
-  const currentUser = useSelf();
-  const hasMoreUsers = users.length > 3;
 
-  return (
-    <main className="flex place-items-center place-content-center w-full h-screen select-none">
-      <div className="flex pl-3">
-        {users.slice(0, 3).map(({ connectionId, info }) => {
-          return (
-            <Avatar
-              key={connectionId}
-              picture={info.picture}
-              name={info.name}
-            />
-          );
-        })}
-
-        {hasMoreUsers && <div className={styles.more}>+{users.length - 3}</div>}
-
-        {currentUser && (
-          <div className="relative ml-8 first:ml-0">
-            <Avatar picture={currentUser.info.picture} name="You" />
-          </div>
-        )}
-      </div>
-    </main>
-  );
-}
 export default function Page() {
   const roomId = useOverrideRoomId("nextjs-live-cursors-chat");
 
