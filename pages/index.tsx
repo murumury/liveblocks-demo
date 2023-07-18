@@ -3,7 +3,7 @@ import {
   useBroadcastEvent,
   useEventListener,
   useMyPresence,
-  useOthers, useSelf
+  useOthers
 } from "../liveblocks.config";
 import React, { useState, useCallback, useEffect, useMemo } from "react";
 import { useRouter } from "next/router";
